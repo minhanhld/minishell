@@ -6,7 +6,7 @@
 /*   By: mle-duc <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:16:58 by mle-duc           #+#    #+#             */
-/*   Updated: 2023/10/06 17:26:24 by mle-duc          ###   ########.fr       */
+/*   Updated: 2023/10/06 19:58:23 by mle-duc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	pwd(void)
 {
-	char *current_wd;
+	char	*current_wd;
 
 	current_wd = NULL;
 	current_wd = getcwd(current_wd, 0);

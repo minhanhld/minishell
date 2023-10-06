@@ -6,7 +6,7 @@
 /*   By: mle-duc <mle-duc@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:12:25 by mle-duc           #+#    #+#             */
-/*   Updated: 2023/10/06 17:24:21 by mle-duc          ###   ########.fr       */
+/*   Updated: 2023/10/06 20:05:51 by mle-duc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@
 
 /* Bultin */
 int	pwd(void);
+int	ft_exit(char **args);
+int	ft_echo(char **args);
 
 #endif

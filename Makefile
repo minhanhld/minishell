@@ -6,7 +6,7 @@
 #    By: mle-duc <mle-duc@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 16:55:24 by mle-duc           #+#    #+#              #
-#    Updated: 2023/10/06 17:16:50 by mle-duc          ###   ########.fr        #
+#    Updated: 2023/10/06 20:05:21 by mle-duc          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ LIBFT_DIR =		./libft
 
 SRCS =			$(addprefix src/, \
 				$(addprefix builtin/, \
+				exit.c \
+				echo.c \
 				pwd.c) \
 				main.c)
 

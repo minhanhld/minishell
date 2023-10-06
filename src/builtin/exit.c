@@ -6,22 +6,29 @@
 /*   By: mle-duc <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:27:00 by mle-duc           #+#    #+#             */
-/*   Updated: 2023/10/06 18:54:06 by mle-duc          ###   ########.fr       */
+/*   Updated: 2023/10/06 19:57:21 by mle-duc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	is_arg_valid(char **args)
+static int	is_arg_valid(char *arg)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (args && args[i])
+	if (arg[i] == '+' || arg[i] == '-')
+		i++;
+	while (arg[i])
 	{
-		if (ft_is 
-int	exit(char **args)
+		if (!ft_isdigit(arg[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_exit(char **args)
 {
 	int	exit_code;
 
@@ -29,6 +36,20 @@ int	exit(char **args)
 		return (EXIT_FAILURE);
 	if (args[1])
 		exit_code = ft_atoi(args[1]);
-	else
-		exit_code = get_err_code();
-	if
+	//else
+	//	exit_code = get_err_code();
+	if (args[1] && args[2])
+	{
+		ft_putstr_fd("exit\n", STDERR_FILENO);
+		ft_putstr_fd("exit: too many arguments\n", STDERR_FILENO);
+		return (EXIT_FAILURE);
+	}
+	else if (!is_arg_valid(args[1]) || ft_strlen(args[1]) > 19)
+	{
+		ft_putstr_fd("exit\n", STDERR_FILENO);
+		ft_putstr_fd("exit: numeric argument required\n", STDERR_FILENO);
+		exit(2);
+	}
+	ft_putstr_fd("exit\n", STDERR_FILENO);
+	exit(exit_code);
+}
