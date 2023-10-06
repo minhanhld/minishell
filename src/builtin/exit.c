@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-duc <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 17:16:58 by mle-duc           #+#    #+#             */
-/*   Updated: 2023/10/06 17:26:24 by mle-duc          ###   ########.fr       */
+/*   Created: 2023/10/06 17:27:00 by mle-duc           #+#    #+#             */
+/*   Updated: 2023/10/06 18:54:06 by mle-duc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	pwd(void)
+static int	is_arg_valid(char **args)
 {
-	char *current_wd;
+	int	i;
+	int	j;
 
-	current_wd = NULL;
-	current_wd = getcwd(current_wd, 0);
-	if (current_wd == NULL)
+	i = 0;
+	while (args && args[i])
 	{
-		perror("Error");
+		if (ft_is 
+int	exit(char **args)
+{
+	int	exit_code;
+
+	if (ft_strncmp(args[0], "exit", ft_strlen(args[0])) != 0)
 		return (EXIT_FAILURE);
-	}
-	else if (printf("%s\n", current_wd) != (int)ft_strlen(current_wd) + 1)
-	{
-		free(current_wd);
-		current_wd = NULL;
-		perror("\nError : printf failed");
-		return (EXIT_FAILURE);
-	}
-	free(current_wd);
-	current_wd = NULL;
-	return (EXIT_SUCCESS);
-}
+	if (args[1])
+		exit_code = ft_atoi(args[1]);
+	else
+		exit_code = get_err_code();
+	if
