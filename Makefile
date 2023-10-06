@@ -6,7 +6,7 @@
 #    By: mle-duc <mle-duc@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 16:55:24 by mle-duc           #+#    #+#              #
-#    Updated: 2023/09/26 08:47:29 by mle-duc          ###   ########.fr        #
+#    Updated: 2023/10/06 17:16:50 by mle-duc          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ INC_DIR =		./inc
 LIBFT_DIR =		./libft
 
 SRCS =			$(addprefix src/, \
+				$(addprefix builtin/, \
+				pwd.c) \
 				main.c)
 
 OBJS =			${SRCS:.c=.o}
