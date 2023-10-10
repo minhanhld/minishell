@@ -6,7 +6,7 @@
 #    By: mle-duc <mle-duc@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 16:55:24 by mle-duc           #+#    #+#              #
-#    Updated: 2023/10/06 20:05:21 by mle-duc          ###   ########.fr        #
+#    Updated: 2023/10/09 16:55:10 by mle-duc          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,13 @@ SRCS =			$(addprefix src/, \
 				$(addprefix builtin/, \
 				exit.c \
 				echo.c \
+				env.c \
 				pwd.c) \
 				main.c)
 
 OBJS =			${SRCS:.c=.o}
 
-CFLAGS =		-g3 -Wall -Werror -Wextra
+CFLAGS =		-g3 #-Wall -Werror -Wextra
 
 LIBFT_PATH =	libft/libft.a
 
