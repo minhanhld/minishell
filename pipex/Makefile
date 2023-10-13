@@ -6,7 +6,7 @@
 #    By: mle-duc <mle-duc@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 16:55:24 by mle-duc           #+#    #+#              #
-#    Updated: 2023/07/10 14:11:04 by mle-duc          ###   ########.fr        #
+#    Updated: 2023/10/13 19:40:33 by mle-duc          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,13 @@ LIBFT_DIR =		./libft
 SRCS =			$(addprefix src/, \
 				utils.c \
 				path.c \
+				executor.c \
+				pars.c \
 				main.c)
 
 OBJS =			${SRCS:.c=.o}
 
-CFLAGS =		-Wall -Werror -Wextra
+CFLAGS =		-g3 -Wall -Werror -Wextra
 
 LIBFT_PATH =	libft/libft.a
 
