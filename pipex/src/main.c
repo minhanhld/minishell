@@ -6,7 +6,7 @@
 /*   By: mle-duc <mle-duc@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:07:02 by mle-duc           #+#    #+#             */
-/*   Updated: 2023/10/13 19:48:26 by mle-duc          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:53:41 by mle-duc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,28 @@ static void	init_pars(t_pars *pars, char *cmd, int outfile, int infile)
 
 int	main(int argc, char *argv[], char *envp[])
 {
-	(void)argc;
-	(void)argv;
-
 	t_pars	*pars;
 	t_pars	*pars2;
 	t_pars	*pars3;
 
+	int fd = 0;
+	if (argc > 1)
+		fd = open(argv[1], O_RDONLY);
 	pars = malloc(sizeof(t_pars));
 	pars2 = malloc(sizeof(t_pars));
 	pars3 = malloc(sizeof(t_pars));
 
-	init_pars(pars, "ls -l", 0, 0);
-	init_pars(pars2, "tac", 0, 0);
+	init_pars(pars, "tac", 0, fd);
+	init_pars(pars2, "cat", 0, 0);
 	init_pars(pars3, "tac", 0 , 0);
 
 	pars->next = pars2;
-	pars2->next = pars3;
-	pars3->next = NULL;
+	pars2->next = NULL;
+	//pars2->next = pars3;
+	//pars3->next = NULL;
 
 	executor(pars, envp);
+	close(fd);
 	free_tab(pars->cmd);
 	free_tab(pars2->cmd);
 	free_tab(pars3->cmd);
@@ -70,3 +72,4 @@ int	main(int argc, char *argv[], char *envp[])
 	free(pars3);
 	return (0);
 }
+

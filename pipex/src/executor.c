@@ -6,7 +6,7 @@
 /*   By: mle-duc <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:44:30 by mle-duc           #+#    #+#             */
-/*   Updated: 2023/10/13 19:49:19 by mle-duc          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:25:31 by mle-duc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	child(int *pipefd, t_pars *pars, char *envp[], int i, int nb_cmd)
 	pid_t pid;
 
 	pid = fork();
-	if (pid > 0)
+	if (pid == 0)
 	{
 		if (i == 0)
 		{
@@ -91,10 +91,20 @@ int	executor(t_pars *pars, char *envp[])
 	create_pipes(pipefd, nb_of_cmd);
 	i = 0;
 	while (i < nb_of_cmd)
+	{
 		child(pipefd, pars, envp, i++, nb_of_cmd);
+		pars = pars->next;
+	}
 	close_pipes(pipefd, nb_of_cmd);
+	i = 0;
+/*	while (i < nb_of_cmd + 1)
+	{
+		waitpid(-1, NULL, 0);
+		i++;
+	}*/
 	waitpid(-1, NULL, 0);
 	free(pipefd);
 	return (0);
 }
+
 
